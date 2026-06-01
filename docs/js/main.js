@@ -139,7 +139,11 @@ function updateCartBadge() {
   const total = cart.reduce((s, i) => s + i.qty, 0);
   const badge = document.getElementById('cart-badge');
   badge.textContent = total;
-  badge.style.display = total > 0 ? 'inline-block' : 'none';
+  if (total > 0) {
+    badge.classList.remove('cart-badge-hidden');
+  } else {
+    badge.classList.add('cart-badge-hidden');
+  }
 }
 
 function getCartTotal() {

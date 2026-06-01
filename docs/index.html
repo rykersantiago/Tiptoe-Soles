@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <!-- WCAG: Skip navigation for keyboard users -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- ============================================
        SIDEBAR
        ============================================ -->
@@ -38,7 +41,7 @@
   <!-- ============================================
        MAIN
        ============================================ -->
-  <main>
+  <main id="main-content">
 
     <!-- TOPBAR -->
     <header>
@@ -54,7 +57,7 @@
       <button class="hdr-btn" onclick="nav('wishlist')">&#9825; Wishlist</button>
       <div class="cart-btn-wrap">
         <button class="hdr-btn" onclick="openCart()" aria-label="View shopping cart">&#9107; Cart</button>
-        <span id="cart-badge" aria-live="polite">0</span>
+        <span id="cart-badge" class="cart-badge-hidden" aria-live="polite" aria-label="Cart item count">0</span>
       </div>
     </header>
 
@@ -225,7 +228,7 @@
     <section class="page" id="page-login" aria-label="Login">
       <div class="login-center">
         <div class="login-box">
-          <h2>Welcome Back</h2>
+          <h1 class="pg-title" style="font-size:1.5rem;margin-bottom:6px;">Welcome Back</h1>
           <p class="sub">Sign in to your TipToe Soles account</p>
           <div class="form-group"><label for="email">Email address</label><input type="email" id="email" placeholder="you@example.com" autocomplete="email" /></div>
           <div class="form-group"><label for="password">Password</label><input type="password" id="password" placeholder="••••••••" autocomplete="current-password" /></div>
@@ -294,12 +297,12 @@
           <ul><li>Be returned within 28 days of the order date</li><li>Be unworn with original tags still attached</li><li>Have no dirty marks or damaged soles</li><li>Be returned in the original, undamaged shoe box</li></ul>
           <p style="margin-top:10px">Please note: postage is non-refundable. TipToe Soles will not take responsibility for returned items not received if registered post is not used.</p>
         </div>
-        <div class="policy-section" id="pol-exchange" role="tabpanel" aria-labelledby="tab-exchange" style="display:none">
+        <div class="policy-section" id="pol-exchange" role="tabpanel" aria-labelledby="tab-exchange">
           <h2>Exchange Policy</h2>
           <p>We want you to love your TipToe Soles purchase. If you need a different size or colour, we're happy to assist with an exchange within 28 days of purchase.</p>
           <p style="margin-top:10px">Items exchanged must meet the same conditions as our returns policy — unworn, original tags, original packaging.</p>
         </div>
-        <div class="policy-section" id="pol-delivery" role="tabpanel" aria-labelledby="tab-delivery" style="display:none">
+        <div class="policy-section" id="pol-delivery" role="tabpanel" aria-labelledby="tab-delivery">
           <h2>Delivery Policy</h2>
           <p>Orders placed before noon AEST will be packed and dispatched on business days via Australia Post.</p>
           <p style="margin-top:12px"><strong>Express Shipping:</strong></p>
@@ -317,7 +320,7 @@
        ============================================ -->
   <div class="modal-overlay" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
     <div class="modal-box">
-      <button class="modal-close" onclick="closeModal('product-modal')" aria-label="Close modal">✕</button>
+      <button class="modal-close" onclick="closeModal('product-modal')" aria-label="Close product details">✕</button>
       <div class="product-modal-img">
         <img id="modal-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Product detail thumbnail" />
       </div>
