@@ -1,0 +1,797 @@
+/* ============================================
+   TipToe Soles — Main Stylesheet
+   style.css
+   ============================================ */
+
+/* ── RESET & VARIABLES ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gold:        #F5C518; /* Retained safely for dark backgrounds */
+  --gold-light:  #FDF3C0;
+  --gold-mid:    #8A6500; /* WCAG Compliant Contrast gold for light backgrounds */
+  --dark:        #1C1C1C;
+  --charcoal:    #2E2E2E;
+  --mid:         #444444; /* Hardened for text legibility scale */
+  --light:       #FAF9F6;
+  --white:       #FFFFFF;
+  --border:      #E8E4DA;
+  --muted:       #666666; /* Increased opacity from #999 for WCAG AA compliance */
+  --sidebar-w:   220px;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--light);
+  color: var(--dark);
+  display: flex;
+  min-height: 100vh;
+  font-size: 15px;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+aside {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0 0 20px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 18px 20px;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-area img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.logo-name {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.logo-sub {
+  color: #bbb;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+nav {
+  flex: 1;
+  padding: 16px 0;
+}
+
+nav a {
+  display: block;
+  padding: 12px 22px;
+  color: #ccc;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transition: color 0.2s, background 0.2s;
+  border-left: 3px solid transparent;
+}
+
+nav a:hover {
+  color: var(--gold);
+  background: rgba(245, 197, 24, 0.05);
+}
+
+nav a.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(245, 197, 24, 0.07);
+}
+
+.sidebar-policies {
+  padding: 16px 22px 0;
+  border-top: 1px solid #333;
+}
+
+.sidebar-policies a {
+  display: block;
+  color: #bbb;
+  font-size: 0.7rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.sidebar-policies a:hover {
+  color: var(--gold);
+}
+
+/* ── SOCIALS CONTAINER ── */
+.sidebar-socials {
+  display: flex;
+  gap: 16px;
+  padding: 20px 22px 0;
+  border-top: 1px solid #333;
+  margin-top: 15px;
+}
+
+.sidebar-socials a {
+  color: #bbb;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.sidebar-socials a:hover {
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOPBAR ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 12px 36px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 8px 16px;
+  background: var(--light);
+  flex: 1;
+  max-width: 260px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  width: 100%;
+}
+
+.hdr-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--mid);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.hdr-btn:hover {
+  border-color: var(--gold-mid);
+  color: var(--dark);
+}
+
+/* ============================================
+   PAGES
+   ============================================ */
+.page {
+  display: none;
+  padding: 36px 36px 60px;
+  animation: fadeUp 0.3s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.pg-title {
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.pg-sub {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin-bottom: 28px;
+}
+
+/* ============================================
+   HOME — BANNER
+   ============================================ */
+.banner {
+  background: var(--dark);
+  border-radius: 14px;
+  padding: 44px 48px;
+  margin-bottom: 44px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.06;
+}
+
+.banner-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-copy h1 {
+  font-family: Georgia, serif;
+  font-size: 2.4rem;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.banner-copy h1 em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.banner-copy p {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 380px;
+  margin-bottom: 22px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary {
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 197, 24, 0.3);
+}
+
+.btn-dark {
+  width: 100%;
+  padding: 12px;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-dark:hover {
+  background: #333;
+}
+
+/* ============================================
+   SECTION HEADINGS
+   ============================================ */
+.section-head {
+  margin-bottom: 24px;
+}
+
+.section-head h2 {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.section-head p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ============================================
+   PRODUCT GRID & CARDS
+   ============================================ */
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 20px;
+  margin-bottom: 44px;
+}
+
+.prod-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.prod-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.prod-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: #f0ede5;
+}
+
+.prod-info {
+  padding: 14px 16px;
+}
+
+.prod-info h3 {
+  font-size: 0.88rem;
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.prod-info .colour {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.prod-info .price {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Georgia, serif;
+  margin-bottom: 10px;
+}
+
+.btn-cart {
+  width: 100%;
+  padding: 9px;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cart:hover {
+  background: #333;
+}
+
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+.about-intro {
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.about-intro p {
+  line-height: 1.8;
+  color: #222;
+  font-size: 0.92rem;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.acard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px;
+}
+
+.acard h3 {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.acard p,
+.acard li {
+  color: #333;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.acard ul {
+  padding-left: 16px;
+}
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.85rem;
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold-mid);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ci {
+  background: var(--dark);
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+
+.ci-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ccc;
+  margin-bottom: 6px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.ci p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ============================================
+   SERVICES PAGE
+   ============================================ */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.svc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px;
+}
+
+.svc-ico {
+  width: 36px;
+  height: 36px;
+  background: var(--gold-light);
+  border-radius: 8px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svc h3 {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.svc p {
+  font-size: 0.83rem;
+  color: #333;
+  line-height: 1.65;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ============================================
+   LOGIN PAGE
+   ============================================ */
+.login-center {
+  max-width: 400px;
+  margin: 32px auto;
+}
+
+.login-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 38px;
+}
+
+.login-box h2 {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.login-box .sub {
+  color: var(--muted);
+  font-size: 0.83rem;
+  margin-bottom: 26px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.divider {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin: 16px 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ============================================
+   WISHLIST PAGE
+   ============================================ */
+.empty-state {
+  text-align: center;
+  padding: 70px 20px;
+  color: var(--muted);
+}
+
+.empty-state p {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* ============================================
+   POLICIES PAGE
+   ============================================ */
+.policy-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.ptab {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  color: var(--dark);
+}
+
+.ptab.active,
+.ptab:hover {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
+
+.policy-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.policy-box h3 {
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+}
+
+.policy-box p,
+.policy-box li {
+  color: #333;
+  font-size: 0.87rem;
+  line-height: 1.8;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.policy-box ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.policy-box li {
+  margin-bottom: 5px;
+}
+
+.note-box {
+  background: #FFFBE8;
+  border-left: 3px solid var(--gold-mid);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 14px 0;
+  font-size: 0.83rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+}
+
+.policy-section {
+  display: none;
+}
+
+.policy-section.active {
+  display: block;
+}
+
+/* ============================================
+   HAMBURGER (mobile)
+   ============================================ */
+.ham {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.ham span {
+  width: 20px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 760px) {
+  :root { --sidebar-w: 0px; }
+
+  aside {
+    transform: translateX(-220px);
+    width: 220px;
+    transition: transform 0.3s;
+  }
+
+  aside.open {
+    transform: none;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .page {
+    padding: 20px 16px 48px;
+  }
+
+  .banner {
+    padding: 28px 24px;
+    flex-direction: column;
+  }
+
+  .banner-copy h1 {
+    font-size: 1.7rem;
+  }
+
+  .about-cards,
+  .svc-grid,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ham {
+    display: flex;
+  }
+}
