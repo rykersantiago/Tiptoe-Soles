@@ -1211,3 +1211,17 @@ header {
     min-height: 200px;
   }
 }
+
+/* Accessibility layout patch for button element injection */
+button.prod-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--white);
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+button.prod-card .prod-info {
+  display: block;
+}

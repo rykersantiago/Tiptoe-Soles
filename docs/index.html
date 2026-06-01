@@ -12,14 +12,14 @@
        SIDEBAR
        ============================================ -->
   <aside id="aside">
-    <a class="logo-area" href="#" onclick="nav('home'); return false;">
+    <a class="logo-area" href="#" onclick="nav('home'); return false;" aria-label="TipToe Soles Home">
       <img src="images/TipToe_Soles_Logo_colour.png" alt="TipToe Soles Logo" />
       <div>
         <div class="logo-name">TipToe Soles</div>
         <div class="logo-sub">Australia · Est. 2026</div>
       </div>
     </a>
-    <nav>
+    <nav aria-label="Main Store Navigation">
       <a href="#" class="active" id="nav-home"     onclick="nav('home', this);     return false;">Home</a>
       <a href="#"                id="nav-about"    onclick="nav('about', this);    return false;">About Us</a>
       <a href="#"                id="nav-products" onclick="nav('products', this); return false;">Products</a>
@@ -28,11 +28,11 @@
       <a href="#"                id="nav-wishlist" onclick="nav('wishlist', this); return false;">Wishlist</a>
       <a href="#"                id="nav-contact"  onclick="nav('contact', this);  return false;">Contact</a>
     </nav>
-    <div class="sidebar-policies">
+    <nav class="sidebar-policies" aria-label="Store Policies Navigation">
       <a href="#" onclick="nav('policies', null, 'returns');  return false;">Return Policies</a>
       <a href="#" onclick="nav('policies', null, 'exchange'); return false;">Exchange Policies</a>
       <a href="#" onclick="nav('policies', null, 'delivery'); return false;">Delivery Policies</a>
-    </div>
+    </nav>
   </aside>
 
   <!-- ============================================
@@ -42,19 +42,19 @@
 
     <!-- TOPBAR -->
     <header>
-      <button class="ham" id="ham" onclick="toggleSidebar()" aria-label="Open menu">
+      <button class="ham" id="ham" onclick="toggleSidebar()" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
       <div class="search-box">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" aria-hidden="true">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
-        <input type="search" placeholder="Search products…" aria-label="Search products" />
+        <input type="search" id="site-search" placeholder="Search products…" aria-label="Search products" />
       </div>
       <button class="hdr-btn" onclick="nav('wishlist')">&#9825; Wishlist</button>
       <div class="cart-btn-wrap">
-        <button class="hdr-btn" onclick="openCart()">&#9107; Cart</button>
-        <span id="cart-badge">0</span>
+        <button class="hdr-btn" onclick="openCart()" aria-label="View shopping cart">&#9107; Cart</button>
+        <span id="cart-badge" aria-live="polite">0</span>
       </div>
     </header>
 
@@ -72,66 +72,66 @@
 
       <div class="section-head"><h2>Men's Shoes</h2><p>Comfort-first designs for every day</p></div>
       <div class="prod-grid">
-        <div class="prod-card" onclick="openProduct(1)">
-          <img src="images/Gary_Tan.jpg" alt="Gary Tan" />
-          <div class="prod-info">
-            <h3>Gary</h3><div class="colour">Tan</div>
-            <div class="price">$79.00</div>
-            <button class="btn-cart" onclick="event.stopPropagation(); openProduct(1)">Add to Cart</button>
-          </div>
-        </div>
-        <div class="prod-card" onclick="openProduct(2)">
-          <img src="images/Gary_Black.jpg" alt="Gary Midnight" />
-          <div class="prod-info">
-            <h3>Gary</h3><div class="colour">Midnight</div>
-            <div class="price">$79.00</div>
-            <button class="btn-cart" onclick="event.stopPropagation(); openProduct(2)">Add to Cart</button>
-          </div>
-        </div>
-        <div class="prod-card" onclick="openProduct(3)">
-          <img src="images/Work_and_Walk_Chesnut.jpg" alt="Work and Walk Chestnut" />
-          <div class="prod-info">
-            <h3>Work and Walk</h3><div class="colour">Chestnut</div>
-            <div class="price">$85.00</div>
-            <button class="btn-cart" onclick="event.stopPropagation(); openProduct(3)">Add to Cart</button>
-          </div>
-        </div>
+        <button type="button" class="prod-card" onclick="openProduct(1)" aria-label="View product details for Gary Tan">
+          <img src="images/Gary_Tan.jpg" alt="Gary Tan comfort shoe profile" />
+          <span class="prod-info">
+            <span class="prod-title-text">Gary</span><span class="colour">Tan</span>
+            <span class="price">$79.00</span>
+            <span class="btn-cart" onclick="event.stopPropagation(); openProduct(1)">Add to Cart</span>
+          </span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(2)" aria-label="View product details for Gary Midnight">
+          <img src="images/Gary_Black.jpg" alt="Gary Midnight black shoe profile" />
+          <span class="prod-info">
+            <span class="prod-title-text">Gary</span><span class="colour">Midnight</span>
+            <span class="price">$79.00</span>
+            <span class="btn-cart" onclick="event.stopPropagation(); openProduct(2)">Add to Cart</span>
+          </span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(3)" aria-label="View product details for Work and Walk Chestnut">
+          <img src="images/Work_and_Walk_Chesnut.jpg" alt="Work and Walk Chestnut support boot" />
+          <span class="prod-info">
+            <span class="prod-title-text">Work and Walk</span><span class="colour">Chestnut</span>
+            <span class="price">$85.00</span>
+            <span class="btn-cart" onclick="event.stopPropagation(); openProduct(3)">Add to Cart</span>
+          </span>
+        </button>
       </div>
 
       <div class="section-head"><h2>Women's Shoes</h2><p>Lightweight and elegant for every occasion</p></div>
       <div class="prod-grid">
-        <div class="prod-card" onclick="openProduct(4)">
-          <img src="images/Sally_Tan.jpg" alt="Sally Tan" />
-          <div class="prod-info">
-            <h3>Sally</h3><div class="colour">Tan</div>
-            <div class="price">$75.00</div>
-            <button class="btn-cart" onclick="event.stopPropagation(); openProduct(4)">Add to Cart</button>
-          </div>
-        </div>
-        <div class="prod-card" onclick="openProduct(5)">
-          <img src="images/Sally_Black.jpg" alt="Sally Black" />
-          <div class="prod-info">
-            <h3>Sally</h3><div class="colour">Black</div>
-            <div class="price">$75.00</div>
-            <button class="btn-cart" onclick="event.stopPropagation(); openProduct(5)">Add to Cart</button>
-          </div>
-        </div>
-        <div class="prod-card" onclick="openProduct(6)">
-          <img src="images/Heavenly_Black.jpg" alt="Heavenly Black" />
-          <div class="prod-info">
-            <h3>Heavenly</h3><div class="colour">Black</div>
-            <div class="price">$90.00</div>
-            <button class="btn-cart" onclick="event.stopPropagation(); openProduct(6)">Add to Cart</button>
-          </div>
-        </div>
-        <div class="prod-card" onclick="openProduct(7)">
-          <img src="images/Clancy_Blue.jpg" alt="Clancy Blue" />
-          <div class="prod-info">
-            <h3>Clancy</h3><div class="colour">Blue</div>
-            <div class="price">$59.00</div>
-            <button class="btn-cart" onclick="event.stopPropagation(); openProduct(7)">Add to Cart</button>
-          </div>
-        </div>
+        <button type="button" class="prod-card" onclick="openProduct(4)" aria-label="View product details for Sally Tan">
+          <img src="images/Sally_Tan.jpg" alt="Sally Tan casual support flat" />
+          <span class="prod-info">
+            <span class="prod-title-text">Sally</span><span class="colour">Tan</span>
+            <span class="price">$75.00</span>
+            <span class="btn-cart" onclick="event.stopPropagation(); openProduct(4)">Add to Cart</span>
+          </span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(5)" aria-label="View product details for Sally Black">
+          <img src="images/Sally_Black.jpg" alt="Sally Black casual support flat" />
+          <span class="prod-info">
+            <span class="prod-title-text">Sally</span><span class="colour">Black</span>
+            <span class="price">$75.00</span>
+            <span class="btn-cart" onclick="event.stopPropagation(); openProduct(5)">Add to Cart</span>
+          </span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(6)" aria-label="View product details for Heavenly Black">
+          <img src="images/Heavenly_Black.jpg" alt="Heavenly Black cushioned walking shoe" />
+          <span class="prod-info">
+            <span class="prod-title-text">Heavenly</span><span class="colour">Black</span>
+            <span class="price">$90.00</span>
+            <span class="btn-cart" onclick="event.stopPropagation(); openProduct(6)">Add to Cart</span>
+          </span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(7)" aria-label="View product details for Clancy Blue">
+          <img src="images/Clancy_Blue.jpg" alt="Clancy Blue everyday lightweight flat" />
+          <span class="prod-info">
+            <span class="prod-title-text">Clancy</span><span class="colour">Blue</span>
+            <span class="price">$59.00</span>
+            <span class="btn-cart" onclick="event.stopPropagation(); openProduct(7)">Add to Cart</span>
+          </span>
+        </button>
       </div>
     </section>
 
@@ -145,7 +145,6 @@
         <p>TipToe Soles is an Australian owned and operated company. We aim to provide comfortable footwear at affordable prices to customers within Australia and around the world. Our first range of products focuses on comfort and daily wear shoes, designed for those aged 30 and above who value quality and practicality.</p>
       </div>
       <div class="about-cards">
-        <!-- FIXED: Changed h3 to h2 to align sequentially below h1 -->
         <div class="acard"><h2>Our Mission</h2><p>To be the go-to affordable footwear brand in Australia and internationally — offering comfort, style and value in every pair.</p></div>
         <div class="acard"><h2>Our Products</h2><p>Our debut range includes carefully crafted men's and women's shoes with features like orthotic-friendly insoles, breathable mesh linings, and durable rubber soles.</p></div>
         <div class="acard"><h2>Contact Us</h2><ul><li>322 Avondale Road, Enfield NSW 2133</li><li>02 9210 5000</li><li>TipToeShoes@gmail.com</li></ul></div>
@@ -162,45 +161,45 @@
 
       <div class="section-head"><h2>Men's Shoes</h2><p>US sizes 6–11 available</p></div>
       <div class="prod-grid">
-        <div class="prod-card" onclick="openProduct(1)">
-          <img src="images/Gary_Tan.jpg" alt="Gary Tan" />
-          <div class="prod-info"><h3>Gary</h3><div class="colour">Tan · US 6–11</div><div class="price">$79.00</div>
-          <button class="btn-cart" onclick="event.stopPropagation(); openProduct(1)">Add to Cart</button></div>
-        </div>
-        <div class="prod-card" onclick="openProduct(2)">
-          <img src="images/Gary_Black.jpg" alt="Gary Midnight" />
-          <div class="prod-info"><h3>Gary</h3><div class="colour">Midnight · US 6–11</div><div class="price">$79.00</div>
-          <button class="btn-cart" onclick="event.stopPropagation(); openProduct(2)">Add to Cart</button></div>
-        </div>
-        <div class="prod-card" onclick="openProduct(3)">
-          <img src="images/Work_and_Walk_Chesnut.jpg" alt="Work and Walk" />
-          <div class="prod-info"><h3>Work and Walk</h3><div class="colour">Chestnut · US 6–11</div><div class="price">$85.00</div>
-          <button class="btn-cart" onclick="event.stopPropagation(); openProduct(3)">Add to Cart</button></div>
-        </div>
+        <button type="button" class="prod-card" onclick="openProduct(1)" aria-label="View Gary Tan product options">
+          <img src="images/Gary_Tan.jpg" alt="Gary Tan variant layout" />
+          <span class="prod-info"><h3>Gary</h3><span class="colour">Tan · US 6–11</span><span class="price">$79.00</span>
+          <span class="btn-cart" onclick="event.stopPropagation(); openProduct(1)">Add to Cart</span></span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(2)" aria-label="View Gary Midnight product options">
+          <img src="images/Gary_Black.jpg" alt="Gary Midnight variant layout" />
+          <span class="prod-info"><h3>Gary</h3><span class="colour">Midnight · US 6–11</span><span class="price">$79.00</span>
+          <span class="btn-cart" onclick="event.stopPropagation(); openProduct(2)">Add to Cart</span></span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(3)" aria-label="View Work and Walk Chestnut product options">
+          <img src="images/Work_and_Walk_Chesnut.jpg" alt="Work and Walk Variant layout" />
+          <span class="prod-info"><h3>Work and Walk</h3><span class="colour">Chestnut · US 6–11</span><span class="price">$85.00</span>
+          <span class="btn-cart" onclick="event.stopPropagation(); openProduct(3)">Add to Cart</span></span>
+        </button>
       </div>
 
       <div class="section-head"><h2>Women's Shoes</h2><p>US sizes 6–11 available</p></div>
       <div class="prod-grid">
-        <div class="prod-card" onclick="openProduct(4)">
-          <img src="images/Sally_Tan.jpg" alt="Sally Tan" />
-          <div class="prod-info"><h3>Sally</h3><div class="colour">Tan · US 6–11</div><div class="price">$75.00</div>
-          <button class="btn-cart" onclick="event.stopPropagation(); openProduct(4)">Add to Cart</button></div>
-        </div>
-        <div class="prod-card" onclick="openProduct(5)">
-          <img src="images/Sally_Black.jpg" alt="Sally Black" />
-          <div class="prod-info"><h3>Sally</h3><div class="colour">Black · US 6–11</div><div class="price">$75.00</div>
-          <button class="btn-cart" onclick="event.stopPropagation(); openProduct(5)">Add to Cart</button></div>
-        </div>
-        <div class="prod-card" onclick="openProduct(6)">
-          <img src="images/Heavenly_Black.jpg" alt="Heavenly Black" />
-          <div class="prod-info"><h3>Heavenly</h3><div class="colour">Black · US 6–11</div><div class="price">$90.00</div>
-          <button class="btn-cart" onclick="event.stopPropagation(); openProduct(6)">Add to Cart</button></div>
-        </div>
-        <div class="prod-card" onclick="openProduct(7)">
-          <img src="images/Clancy_Blue.jpg" alt="Clancy Blue" />
-          <div class="prod-info"><h3>Clancy</h3><div class="colour">Blue · US 6–11</div><div class="price">$59.00</div>
-          <button class="btn-cart" onclick="event.stopPropagation(); openProduct(7)">Add to Cart</button></div>
-        </div>
+        <button type="button" class="prod-card" onclick="openProduct(4)" aria-label="View Sally Tan product options">
+          <img src="images/Sally_Tan.jpg" alt="Sally Tan shoe edition" />
+          <span class="prod-info"><h3>Sally</h3><span class="colour">Tan · US 6–11</span><span class="price">$75.00</span>
+          <span class="btn-cart" onclick="event.stopPropagation(); openProduct(4)">Add to Cart</span></span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(5)" aria-label="View Sally Black product options">
+          <img src="images/Sally_Black.jpg" alt="Sally Black shoe edition" />
+          <span class="prod-info"><h3>Sally</h3><span class="colour">Black · US 6–11</span><span class="price">$75.00</span>
+          <span class="btn-cart" onclick="event.stopPropagation(); openProduct(5)">Add to Cart</span></span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(6)" aria-label="View Heavenly Black product options">
+          <img src="images/Heavenly_Black.jpg" alt="Heavenly Black shoe edition" />
+          <span class="prod-info"><h3>Heavenly</h3><span class="colour">Black · US 6–11</span><span class="price">$90.00</span>
+          <span class="btn-cart" onclick="event.stopPropagation(); openProduct(6)">Add to Cart</span></span>
+        </button>
+        <button type="button" class="prod-card" onclick="openProduct(7)" aria-label="View Clancy Blue product options">
+          <img src="images/Clancy_Blue.jpg" alt="Clancy Blue shoe edition" />
+          <span class="prod-info"><h3>Clancy</h3><span class="colour">Blue · US 6–11</span><span class="price">$59.00</span>
+          <span class="btn-cart" onclick="event.stopPropagation(); openProduct(7)">Add to Cart</span></span>
+        </button>
       </div>
     </section>
 
@@ -211,13 +210,12 @@
       <h1 class="pg-title">Services</h1>
       <p class="pg-sub">How we take care of you</p>
       <div class="svc-grid">
-        <!-- FIXED: Changed h3 to h2 to align sequentially below h1 -->
-        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><h2>Free Returns</h2><p>Free returns on all items over $60 within 28 days of your order date. Items must be unworn and in original packaging.</p></div>
-        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="m16 8 5 2v5h-5V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h2>Fast Delivery</h2><p>Express and standard shipping via Australia Post. Orders placed before noon AEST are dispatched same business day.</p></div>
-        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h2>Customer Support</h2><p>Reach us by phone at 02 9210 5000 or email TipToeShoes@gmail.com. We're here Monday to Friday.</p></div>
-        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h2>Secure Payments</h2><p>All transactions are secured. We support debit, credit cards and PayPal via our payment gateway.</p></div>
-        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h2>Wishlist</h2><p>Save your favourite styles and come back to them any time. Never lose track of a pair you love.</p></div>
-        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h2>Easy Search</h2><p>Find exactly what you need quickly with our product search and category browsing.</p></div>
+        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><h2>Free Returns</h2><p>Free returns on all items over $60 within 28 days of your order date. Items must be unworn and in original packaging.</p></div>
+        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="m16 8 5 2v5h-5V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h2>Fast Delivery</h2><p>Express and standard shipping via Australia Post. Orders placed before noon AEST are dispatched same business day.</p></div>
+        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h2>Customer Support</h2><p>Reach us by phone at 02 9210 5000 or email TipToeShoes@gmail.com. We're here Monday to Friday.</p></div>
+        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h2>Secure Payments</h2><p>All transactions are secured. We support debit, credit cards and PayPal via our payment gateway.</p></div>
+        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h2>Wishlist</h2><p>Save your favourite styles and come back to them any time. Never lose track of a pair you love.</p></div>
+        <div class="svc"><div class="svc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h2>Easy Search</h2><p>Find exactly what you need quickly with our product search and category browsing.</p></div>
       </div>
     </section>
 
@@ -245,7 +243,7 @@
       <h1 class="pg-title">Wishlist</h1>
       <p class="pg-sub">Items you've saved</p>
       <div class="empty-state">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         <p>Your wishlist is empty. Browse our products and save your favourites!</p>
         <br /><button class="btn-primary" onclick="nav('products')">Browse Products</button>
       </div>
@@ -282,14 +280,13 @@
     <section class="page" id="page-policies" aria-label="Policies">
       <h1 class="pg-title">Policies</h1>
       <p class="pg-sub">Our commitments to you</p>
-      <div class="policy-tabs">
-        <button class="ptab active" onclick="showPol('returns', this)">Returns</button>
-        <button class="ptab"        onclick="showPol('exchange', this)">Exchange</button>
-        <button class="ptab"        onclick="showPol('delivery', this)">Delivery</button>
+      <div class="policy-tabs" role="tablist" aria-label="Policy Information Tabs">
+        <button class="ptab active" id="tab-returns" role="tab" aria-selected="true" aria-controls="pol-returns" onclick="showPol('returns', this)">Returns</button>
+        <button class="ptab"        id="tab-exchange" role="tab" aria-selected="false" aria-controls="pol-exchange" onclick="showPol('exchange', this)">Exchange</button>
+        <button class="ptab"        id="tab-delivery" role="tab" aria-selected="false" aria-controls="pol-delivery" onclick="showPol('delivery', this)">Delivery</button>
       </div>
       <div class="policy-box">
-        <!-- FIXED: Changed h3 to h2 to align sequentially below h1 -->
-        <div class="policy-section active" id="pol-returns">
+        <div class="policy-section active" id="pol-returns" role="tabpanel" aria-labelledby="tab-returns">
           <h2>Return Policy</h2>
           <div class="note-box">FREE RETURNS on all items over $60 within 28 days of the order date.</div>
           <p>TipToe Soles is confident that you will be happy with your purchase. If for any reason this is not the case, we offer free returns for items over $60 within 28 days of the order date.</p>
@@ -297,12 +294,12 @@
           <ul><li>Be returned within 28 days of the order date</li><li>Be unworn with original tags still attached</li><li>Have no dirty marks or damaged soles</li><li>Be returned in the original, undamaged shoe box</li></ul>
           <p style="margin-top:10px">Please note: postage is non-refundable. TipToe Soles will not take responsibility for returned items not received if registered post is not used.</p>
         </div>
-        <div class="policy-section" id="pol-exchange">
+        <div class="policy-section" id="pol-exchange" role="tabpanel" aria-labelledby="tab-exchange" style="display:none">
           <h2>Exchange Policy</h2>
           <p>We want you to love your TipToe Soles purchase. If you need a different size or colour, we're happy to assist with an exchange within 28 days of purchase.</p>
           <p style="margin-top:10px">Items exchanged must meet the same conditions as our returns policy — unworn, original tags, original packaging.</p>
         </div>
-        <div class="policy-section" id="pol-delivery">
+        <div class="policy-section" id="pol-delivery" role="tabpanel" aria-labelledby="tab-delivery" style="display:none">
           <h2>Delivery Policy</h2>
           <p>Orders placed before noon AEST will be packed and dispatched on business days via Australia Post.</p>
           <p style="margin-top:12px"><strong>Express Shipping:</strong></p>
@@ -318,19 +315,19 @@
   <!-- ============================================
        PRODUCT MODAL
        ============================================ -->
-  <div class="modal-overlay" id="product-modal">
+  <div class="modal-overlay" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
     <div class="modal-box">
-      <button class="modal-close" onclick="closeModal('product-modal')" aria-label="Close">✕</button>
+      <button class="modal-close" onclick="closeModal('product-modal')" aria-label="Close modal">✕</button>
       <div class="product-modal-img">
         <img id="modal-img" src="" alt="" />
       </div>
       <div class="product-modal-info">
         <div class="modal-category" id="modal-category"></div>
-        <h2 id="modal-name"></h2>
+        <h2 id="modal-name">Product Details</h2>
         <div class="modal-price" id="modal-price"></div>
         <p class="modal-desc" id="modal-desc"></p>
-        <div class="size-label">Select a size</div>
-        <div class="size-grid" id="modal-sizes"></div>
+        <div class="size-label" id="size-selection-heading">Select a size</div>
+        <div class="size-grid" id="modal-sizes" role="group" aria-labelledby="size-selection-heading"></div>
         <button class="btn-primary" id="modal-add-btn" style="width:100%">Add to Cart</button>
       </div>
     </div>
@@ -339,13 +336,13 @@
   <!-- ============================================
        CART MODAL
        ============================================ -->
-  <div class="modal-overlay" id="cart-modal">
+  <div class="modal-overlay" id="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-heading">
     <div class="modal-box">
       <div class="modal-header">
-        <h2>Your Cart</h2>
-        <button class="modal-close" onclick="closeModal('cart-modal')" aria-label="Close" style="position:relative;top:auto;right:auto;">✕</button>
+        <h2 id="cart-heading">Your Cart</h2>
+        <button class="modal-close" onclick="closeModal('cart-modal')" aria-label="Close shopping cart" style="position:relative;top:auto;right:auto;">✕</button>
       </div>
-      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-items" id="cart-items" aria-live="polite"></div>
       <div class="cart-footer" id="cart-footer" style="display:none">
         <div class="cart-total-row">
           <span class="label">Total</span>
@@ -359,16 +356,16 @@
   <!-- ============================================
        CHECKOUT MODAL
        ============================================ -->
-  <div class="modal-overlay" id="checkout-modal">
+  <div class="modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-heading">
     <div class="modal-box">
       <div class="modal-header">
-        <h2>Checkout</h2>
-        <button class="modal-close" onclick="closeModal('checkout-modal')" aria-label="Close" style="position:relative;top:auto;right:auto;">✕</button>
+        <h2 id="checkout-heading">Checkout</h2>
+        <button class="modal-close" onclick="closeModal('checkout-modal')" aria-label="Close checkout" style="position:relative;top:auto;right:auto;">✕</button>
       </div>
       <div class="checkout-body">
 
         <div class="checkout-section-title">Order Summary</div>
-        <div class="checkout-summary" id="checkout-summary"></div>
+        <div class="checkout-summary" id="checkout-summary" aria-live="polite"></div>
         <div class="checkout-total-row">
           <span class="label">Total</span>
           <span class="amount" id="checkout-total"></span>
@@ -392,7 +389,7 @@
   </div>
 
   <!-- TOAST -->
-  <div id="toast"></div>
+  <div id="toast" role="alert" aria-live="assertive"></div>
 
   <script src="js/main.js"></script>
 </body>
